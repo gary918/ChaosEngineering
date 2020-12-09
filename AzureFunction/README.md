@@ -15,7 +15,7 @@ Open a brower and type: http://localhost:7071/api/HttpTrigger1?name=gary
 Check the result and see if the latency's been injected.
 ### Change the latency injection config
 ```
-python inject_fault.py --app_config_con_str xxx --enable_latency_injection False --min_latency 120000 --max_latency 180000 --latency_injection_rate 70
+python inject_fault.py --app_config_con_str <connection_str> --enable_latency_injection <True or False> --min_latency 120000 --max_latency 180000 --latency_injection_rate 70
 ```
 
 ## References
