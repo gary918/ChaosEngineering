@@ -49,15 +49,15 @@ def main():
 
     # {"LatencyInjectionIsEnabled": true, "MinLatency": 120000, "MaxLatency": 180000, "LatencyInjectionRate": 70}
     print("Updating latency injection configuration for 'LatencyInjection'")
-    print(setting)
+    # print(setting)
 
     added_config_setting = ConfigurationSetting(key="LatencyInjection", value=setting)
 
     try:
         app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
         updated_config_setting = app_config_client.set_configuration_setting(added_config_setting)
-        print("Updated Key: " + updated_config_setting.key)
-        print("with Value: " + updated_config_setting.value)
+        print("Key: " + updated_config_setting.key)
+        print("Value: " + updated_config_setting.value)
     except Exception as e:
         print(e)
 

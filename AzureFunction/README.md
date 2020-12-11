@@ -21,3 +21,9 @@ python inject_fault.py --app_config_con_str <connection_str> --enable_latency_in
 ## References
 * [Simmy and Azure App Configuration](http://www.thepollyproject.org/2019/08/13/simmy-and-azure-app-configuration/)
 * [Failure injection for Azure Functions - failure-azurefunctions](https://github.com/gunnargrosch/failure-azurefunctions)
+* [Azure Functions Python developer guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python)
+* Azure App Configuration
+  - [Azure App Configuration client library for Python - Version 1.1.1](https://docs.microsoft.com/en-us/python/api/overview/azure/appconfiguration-readme?view=azure-python)
+  - [Quickstart: Create a Python app with Azure App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/quickstart-python#code-samples)
+  - [Reduce requests made to App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/howto-best-practices#reduce-requests-made-to-app-configuration)
+  - [Tutorial: Use dynamic configuration in an Azure Functions app (C# only)](https://docs.microsoft.com/en-us/azure/azure-app-configuration/enable-dynamic-configuration-azure-functions-csharp)
