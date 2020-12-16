@@ -34,10 +34,11 @@ class FaultInjector:
     def __should_inject_latency(self, is_enabled: bool, latency_injection_rate: int) -> bool:
         if ((is_enabled == False) or (latency_injection_rate <= 0)):
             return False
-        print(f"....latency_injection_rate:{latency_injection_rate}")
         if (self.__get_next_random_number() <= latency_injection_rate  / 100.0):
+            print("..Inject latency")
             return True
         else:
+            print("..Not inject latency")
             return False
 
       
@@ -48,10 +49,13 @@ class FaultInjector:
 
     def __should_inject_exception(self, is_enabled: bool, exception_injection_rate: int) -> bool:
         if ((is_enabled == False) or (exception_injection_rate <= 0)):
+            print("..Not inject exception")
             return False
         if (self.__get_next_random_number() <= exception_injection_rate / 100.0):
+            print("..Inject exception")
             return True
         else:
+            print("..Not inject exception")
             return False
 
 
@@ -59,7 +63,7 @@ class FaultInjector:
         latencyRange = max_latency - min_latency
         latencyRatio = self.__get_next_random_number()
         latency = min_latency + (latencyRange * latencyRatio)
-        print ('.....Delaying %d ...' % latency)
+        print ('...Delaying %d ...' % latency)
         self.faultInjectionStatus.latency_injected = True
         self.faultInjectionStatus.latency = latency
         latency_function (self, latency)
