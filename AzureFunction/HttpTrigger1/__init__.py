@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+import datetime, time
 
 import azure.functions as func
 from shared_code.FaultInjection import *
@@ -52,6 +53,7 @@ def get_fault_injection_config():
     return injection_config
 
 
+
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
     logger = logging.getLogger(__name__)
@@ -99,6 +101,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     stat = retryer.statistics
     if stat is not None:
         stat["file_url"]="file_url"
+        stat["start_time"]=str(datetime.datetime.utcfromtimestamp(stat["start_time"])) # Re-format the timestamp to datetime
         stat=json.dumps(stat)
         print(stat)
 

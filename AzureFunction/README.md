@@ -1,22 +1,23 @@
 # Inject Faults to Azure Functions
-## Inject Latency to Azure Functions
-Inject some latency to your running Azure Functions.
-### Set up the environment
+Inject some latency and/or exceptions to your running Azure Functions.
+## Set up the environment
 ```
 pip install -r requirement.txt
 ```
-### Local test configuration
+## Local test configuration
 Change the file name local.settings.sample to local.settings.json. Input the correct value for AZURE_APP_CONFIG_CONNECTION_STRING.
-### Local run the function
+## Local run the function
 ```
 func start
 ```
 Open a brower and type: http://localhost:7071/api/HttpTrigger1?name=gary
-Check the result and see if the latency's been injected.
-### Change the latency injection config
+Check the result and see if the latency/exceptions've been injected.
+## Change the latency injection config
+Use the following command to inject latency and/or excpetions.
 ```
-python inject_fault.py --app_config_con_str <connection_str> --enable_latency_injection <True or False> --min_latency 120000 --max_latency 180000 --latency_injection_rate 70
+python inject_fault.py --app_config_con_str <connection_str> --is_enabled <True or False> --min_latency 120000 --max_latency 180000 --latency_injection_rate 70  --exception_injection_rate 50 --stop_after_attempt 3 --stop_after_delay 1500000
 ```
+You may set exception_injection_rate to 0 if you only want to inject latency.
 
 ## References
 * [Simmy and Azure App Configuration](http://www.thepollyproject.org/2019/08/13/simmy-and-azure-app-configuration/)
