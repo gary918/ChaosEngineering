@@ -77,7 +77,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         name = faultInjector (process_data, [name])
         last_status = faultInjector.get_last_status()
         print (f"STATUS:{last_status}") """
-        # Use Retrying without @retry
+        # Use Retrying without @retry which cannot be parametrized
         retryer = Retrying(
             reraise=True, 
             stop=(stop_after_attempt(injection_config["retry:stop_after_attempt"])|stop_after_delay(injection_config["retry:stop_after_delay"]/1000)),
